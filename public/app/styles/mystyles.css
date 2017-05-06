@@ -1,0 +1,141 @@
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  /*
+    border-bottom: 1px ridge;
+    min-height: 400px;
+  */
+}
+.row-footer {
+  margin: 0px auto;
+  padding: 20px 0px;
+  background-color: #AfAfAf;
+}
+.jumbotron {
+  margin: 0px auto;
+  padding: 70px 30px;
+  background: #7986CB;
+  color: floralwhite;
+}
+.navbar-inverse {
+  background: #303f9f;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .active > a:focus {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a:hover {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav > .open > a:focus {
+  background: #1a237e;
+  color: #ffffff;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  background-color: #303f9f;
+  color: #eeeeee;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #000000;
+}
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+  background-color: #303f9f;
+  color: #eeeeee;
+}
+address {
+  color: #0f0f0f;
+  font-size: 80%;
+  margin: 0px;
+}
+body {
+  /*  padding: 50px 0px 0px 0px; */
+  align: center;
+  z-index: 0;
+}
+/*
+.tab-content {
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  padding: 10px;
+}
+*/
+.affix {
+  top: 100px;
+}
+/* carousel */
+.carousel, .carousel .item {
+  background: #89634A;
+  /* background: #D4B783;*/
+}
+#navbar .nav>li>a,
+a.navbar-brand {
+  color: #fff;
+}
+
+#navbar .nav>li>a:hover {
+  color: #89634A;
+}
+#navbar .nav>li.active {
+  background:#fff;
+}
+#navbar .nav>li.active > a {
+  color: #89634A;
+}
+.navbar-collapse[aria-expanded="true"] {
+  /* background: #89634A; */
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(137, 99, 74);
+  /* RGBa with 0.6 opacity */
+  background-color: rgba(137, 99, 74, 0.4);
+  /* For IE 5.5 - 7*/
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.navbar-toggle .icon-bar {
+  background: #fff;
+}
+.breadcrumb {
+  background-color: transparent;
+  padding: 8px 0;
+}
+.padding-top-50 {
+  padding-top: 50px;
+}
+.padding-top-30 {
+  padding-top: 30px;
+}
+.nav-pills>li>a {
+  border-radius: 0;
+}
+.nav-pills>li {
+  cursor: pointer;
+}
+.app-box {
+  min-width: 235px;
+}
+.inner-padding {
+  padding: 0 15px;
+}
+.label {
+  font-size: 50%;
+}

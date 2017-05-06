@@ -1,0 +1,63 @@
+<div class="container marketing">
+
+        <!-- PAGE HEADER -->
+        <div class="row">
+            <div class="col-xs-12">
+               <h2>Browse apps</h2>
+               <ul class="breadcrumb">
+                   <li><a href="index.html">GiveThatDevACookie</a></li>
+                   <li class="active">Browse apps</li>
+               </ul>
+            </div>
+        </div>
+
+        <div class="row row-content">
+            <!-- ERROR MESSAGE -->
+            <div class="col-xs-12" ng-if="!showApps">
+                <h3>{{message}}</h3>
+            </div>
+            <!-- APPS LIST -->
+            <div class="col-xs-12" ng-if="showApps">
+
+                <!-- APP FILTERS -->
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" ng-class="{active:isSelected(1)}">
+                      <a ng-click="select(1)" aria-controls="all apps" role="tab">All apps</a>
+                    </li>
+                    <li role="presentation" ng-class="{active:isSelected(2)}">
+                      <a ng-click="select(2)" aria-controls="app" role="tab">Apps</a>
+                    </li>
+                    <li role="presentation" ng-class="{active:isSelected(3)}">
+                      <a ng-click="select(3)" aria-controls="script" role="tab">Scripts</a>
+                    </li>
+                    <li role="presentation" ng-class="{active:isSelected(4)}">
+                      <a ng-click="select(4)" aria-controls="web_service" role="tab">Web Services</a>
+                    </li>
+                </ul>
+
+                <!-- APPS -->
+                <div class="tab-content padding-top-50">
+                 <ul class="media-list tab-pane fade in active">
+                  <li class="media" ng-repeat="app in apps | filter:filtText">
+                      <div class="media-left media-middle">
+                          <a ui-sref="app.appdetail({id: app._id})">
+                            <img class="media-object img-circle" ng-src={{app.image_url}} alt="App image" width="140" height="140">
+                          </a>
+                      </div>
+                      <div class="media-body">
+                          <h2 class="media-heading">
+                            {{app.title}}
+                            <button ng-click="addToFavorites(app._id)" class="btn btn-xs btn-success " type="button">
+                              <i class="fa fa-heart"></i>
+                            </button>
+                            <span class="label label-warning label-xs">{{app.category}}</span>
+                            <span class="badge" ng-repeat="tag in app.tags">{{tag}}</span>
+                          </h2>
+                          <p ng-show="showDetails">{{app.description}}</p>
+                      </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div> <!-- /.container .marketing -->

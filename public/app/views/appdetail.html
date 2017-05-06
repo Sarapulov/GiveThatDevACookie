@@ -1,0 +1,117 @@
+<div class="container marketing">
+  <!-- PAGE HEADER -->
+  <div class="row">
+      <div class="col-xs-12">
+         <h2>App details</h2>
+         <ul class="breadcrumb">
+             <li><a href="index.html">GiveThatDevACookie</a></li>
+             <li><a href="index.html#/browseapps">Browse apps</a></li>
+             <li class="active">App details</li>
+         </ul>
+      </div>
+  </div>
+
+  <!-- APP DETAILS -->
+  <div class="row row-content">
+      <!-- ERROR MESSAGE -->
+      <div class="col-xs-12" ng-if="!showApp">
+          <h3>{{message}}</h3>
+      </div>
+
+      <div class="col-xs-12" ng-if="showApp">
+
+          <div class="media">
+              <div class="media-left media-middle">
+                <img class="media-object img-circle" ng-src={{app.image_url}} alt="App image" width="200" height="200">
+              </div>
+              <div class="media-body inner-padding">
+                  <h2 class="media-heading">
+                    {{app.title}}
+                    <span class="label label-warning">{{app.category}}</span>
+                    <span class="badge" ng-repeat="tag in app.tags">{{tag}}</span>
+                  </h2>
+                  <p>{{app.description}}</p>
+                  <p class="text-muted">Shared by {{app.postedBy.firstname}} {{app.postedBy.lastname}}</p>
+              </div>
+              <div class="media-right media-middle app-box well">
+                <!-- Download -->
+                <div class="form-group">
+                  <a role="button" href="{{app.download_url}}" target="_blank" class="btn btn-block btn-primary" type="button">
+                    Download
+                  </a>
+                </div>
+                <!-- Add to favorites -->
+                <div class="form-group">
+                  <button ng-disabled="{{isLogin}}" ng-click="addToFavorites(app._id)" class="btn btn-block btn-success" type="button">
+                    Add to favorites
+                  </button>
+                </div>
+                <!-- Feedback form -->
+                <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
+                    <div class="form-group">
+                       <!-- <label for="numpeople" class="col-sm-2 control-label">Number of Stars</label> -->
+                        <div class="col-xs-12">
+                            <label class="radio-inline">
+                              <input type="radio" name="rating" ng-model="mycomment.rating" id="rating1" value=1> 1
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="rating" ng-model="mycomment.rating" id="rating2" value=2> 2
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="rating" ng-model="mycomment.rating" id="rating3" value=3> 3
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="rating" ng-model="mycomment.rating" id="rating4" value=4> 4
+                            </label>
+                            <label class="radio-inline">
+                              <input type="radio" name="rating" ng-model="mycomment.rating" id="rating5" value=5 checked> 5
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group"  ng-class="{ 'has-error' : commentForm.comments.$error.required && !commentForm.comments.$pristine }">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" id="comments" name="comments" placeholder="Your feedback" ng-model="mycomment.comment" required>
+                         <span ng-show="commentForm.comments.$error.required && !commentForm.comments.$pristine" class="help-block">Your comments are required.</span>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-default btn-block" ng-disabled="commentForm.$invalid">Submit Feedback</button>
+                        </div>
+                    </div>
+                </form>
+
+
+              </div>
+          </div>
+      </div>
+
+      <!-- Feedbacks -->
+      <div class="col-xs-10 padding-top-30">
+       <h3>Feedbacks</h3>
+       <ul class="list-unstyled padding-top-30">
+            <li ng-repeat="comment in app.comments | orderBy:orderText">
+              <blockquote>
+                 <p>{{comment.rating}} Stars</p>
+                 <p>{{comment.comment}}</p>
+                 <footer>{{comment.postedBy.firstname}} {{comment.postedBy.lastname}}, {{comment.updatedAt | date:'MMM. dd, yyyy'}}</footer>
+              </blockquote>
+            </li>
+        </ul>
+      </div>
+
+      <!--
+      <div class="col-xs-10">
+        <ul class="list-unstyled" ng-show="commentForm.$valid && !commentForm.$pristine">
+            <li>
+              <blockquote>
+                 <p>{{mycomment.rating}} Stars</p>
+                 <p>{{mycomment.comment}}</p>
+              </blockquote>
+            </li>
+        </ul>
+      </div>
+      -->
+
+  </div>
+</div> <!-- /.container .marketing -->

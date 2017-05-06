@@ -1,0 +1,112 @@
+<div class="container marketing">
+
+  <!-- PAGE HEADER -->
+  <div class="row">
+      <div class="col-xs-12">
+         <h2>Share app</h2>
+         <ul class="breadcrumb">
+             <li><a href="index.html">GiveThatDevACookie</a></li>
+             <li class="active">Share app</li>
+         </ul>
+      </div>
+  </div>
+
+  <!-- ABOUT US -->
+  <div class="row">
+    <div class="col-xs-12 padding-top-30">
+        <p>
+          Share information about your app, script or web service which is relevant to support ticketing industry.<br />
+          Please note that GiveThatDevACookie do not host any your files. We just provide interface for your solution to be displayed and being easy to find.<br />
+          You can publicly host your app, script or web service on platforms like <a href="https://github.com" target="_blank" title="github">https://github.com</a>.<br />
+          In case you'll expereince issues sharing your app details using the form below feel free to contact us.
+        </p>
+    </div>
+  </div>
+
+  <!-- SHARE APP FORM -->
+  <div class="row row-content">
+
+    <div class="col-xs-12 col-sm-9">
+
+        <div class="alert alert-success" role="alert" ng-show="showSuccess">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Success:</span>
+          Your app is now shared! Time to browse apps!
+        </div>
+
+        <div class="alert alert-danger" role="alert" ng-show="showError">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          App can not be shared! Error: {{errorMessage}}
+        </div>
+
+        <form class="form-horizontal" role="form" name="shareAppForm" ng-submit="shareApp()" novalidate>
+
+            <!-- app title -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appTitle.$error.required && !shareAppForm.appTitle.$pristine }">
+              <label for="title" class="col-sm-2 control-label">App title</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter app title" ng-model="newApp.appTitle" required>
+                <span ng-show="shareAppForm.appTitle.$error.required && !shareAppForm.appTitle.$pristine" class="help-block">App title is required</span>
+              </div>
+            </div>
+
+            <!-- app description -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appDescription.$error.required && !shareAppForm.appDescription.$pristine }">
+              <label for="description" class="col-sm-2 control-label">App description</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="description" name="description" placeholder="Enter app description" ng-model="newApp.appDescription" required>
+                <span ng-show="shareAppForm.appDescription.$error.required && !shareAppForm.appDescription.$pristine" class="help-block">App description is required.</span>
+              </div>
+            </div>
+
+            <!-- app image URL -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appImageUrl.$error.required && !shareAppForm.appImageUrl.$pristine }">
+              <label for="image_url" class="col-sm-2 control-label">App icon URL</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="image_url" name="image_url" placeholder="Enter App icon URL" ng-model="newApp.appImageUrl" required>
+                <span ng-show="shareAppForm.appImageUrl.$error.required && !shareAppForm.appImageUrl.$pristine" class="help-block">App icon URL is required.</span>
+              </div>
+            </div>
+
+            <!-- app download URL -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appDownloadUrl.$error.required && !shareAppForm.appDownloadUrl.$pristine }">
+              <label for="download_url" class="col-sm-2 control-label">App download URL</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="download_url" name="download_url" placeholder="Enter App download URL" ng-model="newApp.appDownloadUrl" required>
+                <span ng-show="shareAppForm.appDownloadUrl.$error.required && !shareAppForm.appDownloadUrl.$pristine" class="help-block">App download URL is required.</span>
+              </div>
+            </div>
+
+            <!-- app category -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appCategory.$error.required && !shareAppForm.appCategory.$pristine }">
+              <label for="category" class="col-sm-2 control-label">App category</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="newApp.appCategory">
+                  <option ng-repeat="cat in appCategories" value="{{cat.value}}">{{cat.label}}</option>
+                </select>
+                <span ng-show="shareAppForm.appCategory.$error.required && !shareAppForm.appCategory.$pristine" class="help-block">App category is required.</span>
+              </div>
+            </div>
+
+            <!-- app tags -->
+            <div class="form-group" ng-class="{ 'has-error' : shareAppForm.appTags.$error.required && !shareAppForm.appTags.$pristine }">
+              <label for="tags" class="col-sm-2 control-label">App tags</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="tags" name="tags" placeholder="Enter space separated App tags" ng-model="newApp.appTags" required>
+                <span ng-show="shareAppForm.appTags.$error.required && !shareAppForm.appTags.$pristine" class="help-block">App tags are required.</span>
+              </div>
+            </div>
+
+            <!-- submit -->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" ng-disabled="shareAppForm.$invalid">Share app</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+  </div>
+</div> <!-- /.container marketing -->
