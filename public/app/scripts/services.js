@@ -1,7 +1,7 @@
 'use strict';
 angular.module('GiveThatDevACookieApp')
 
-.constant("baseURL", "https://localhost:3443/")
+.constant("baseURL", location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + '/' || "https://localhost:3443/")
 
 .factory('browseAppsFactory', ['$resource', 'baseURL', function ($resource, baseURL) {
   return $resource(baseURL + "apps/:id", null, {

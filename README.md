@@ -19,6 +19,31 @@ Visitors of alternative app marketplace (ticketing system administrators or othe
 
 Cloud based ticketing platforms such as zendesk.com may use alternative app marketplace to look for great apps or talented authors and help them developing their ideas. Alternative app marketplace is another community place for industry developers.
 
+## Application versions and availability
+
+Application was deployed to [heroku](https://givethatdevacookie.herokuapp.com/#/) instance. There is a high chance that it still runs there.
+
+Application source code on [current github repo](https://github.com/Sarapulov/GiveThatDevACookie) intended for local use only. In order to deploy the app on heroku instance the following changes should be made:
+
+- update `baseUrl` to `.constant("baseURL", "https://givethatdevacookie.herokuapp.com/")` in `services.js`
+- deploy MongoDb and update `config.js` to `'mongoUrl' : 'mongodb://<db_user>:<db_password>@ds123930.mlab.com:23930/givethatdevacookie'`
+- disable secure requests in `app.js`
+
+```
+/*
+
+app.all('*', function(req, res, next){
+    console.log('req start: ',req.secure, req.hostname, req.url, app.get('port'));
+  if (req.secure) {
+    return next();
+  };
+
+ res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
+});
+
+*/
+```
+
 ## How to run
 
 App will serve `dist` folder and REST API via `https`
