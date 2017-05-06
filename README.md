@@ -39,11 +39,11 @@ To give better context about application structure please refer to reports below
 
 You can download report from `/reports` folder
 
-[UI Design and Prototyping Report](reports/Alternative App Marketplace for cloud based ticketing software.pdf)
+[UI Design and Prototyping Report](reports/ideation.pdf)
 
-[Alternative App Marketplace for cloud based ticketing software](reports/Alternative App Marketplace for cloud based ticketing software.pdf)
+[Alternative App Marketplace for cloud based ticketing software](reports/design.pdf)
 
-[Application Design and Software Structure Report](reports/Application Design and Software Structure Report.pdf)
+[Application Design and Software Structure Report](reports/structure.pdf)
 
 ## Screenshots
 
