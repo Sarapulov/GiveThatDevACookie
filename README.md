@@ -45,6 +45,8 @@ You can download report from `/reports` folder
 
 [Application Design and Software Structure Report](reports/structure.pdf)
 
+[Final Report](reports/final.pdf)
+
 ## Screenshots
 
 ![home_screen](screenshots/home_screen.png)
